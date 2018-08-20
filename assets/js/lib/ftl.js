@@ -210,6 +210,9 @@ if (!ftl.moteur) {
 
                 }
             }
+
+            ftl.moteur.map.plan[4][5].field.type = 2;
+            ftl.moteur.map.plan[5][5].field.type = 2;
         },
 
         draw: function draw() {
@@ -221,9 +224,11 @@ if (!ftl.moteur) {
 
                 for (var cell in ftl.moteur.map.plan[line]) {
 
+                    var zone = ftl.moteur.map.plan[line][cell];
+
                     var lineBuild = $('.line-' + line);
 
-                    lineBuild.append('<div class="col cell-' + cell + '">0</div>');
+                    lineBuild.append('<div class="col cell cell-' + cell + ' field-' + zone.field.type + '">&nbsp;</div>');
                 }
             }
 

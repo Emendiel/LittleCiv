@@ -1,5 +1,28 @@
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: lightgray;
+@import "configs/colors";
+
+.map {
+    border: 1px solid $midnight;
+
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .cell {
+        border: 1px solid $midnight;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $zircon;
+        }
+    }
+
+    @each $key, $color in $field-colors {
+        .field-#{$key} { background-color: $color; }
+    }
 }
+
